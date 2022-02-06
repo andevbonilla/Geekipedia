@@ -1,0 +1,16 @@
+
+.arrows{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.arrow-button{
+    padding: 1rem;
+    border: none;
+}
+
+
+img{
+    max-width: 100%;
+
+}

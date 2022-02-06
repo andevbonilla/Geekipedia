@@ -1,0 +1,106 @@
+<div class="mt-5"></div>
+<div class="introduction">
+
+    <div class="text-part">
+        <h2>Depth First Seach</h2>
+        <p>
+            Depth First search, as its name says is a search that occurs either in a tree or in a graph at depth to, for example, find if X point connects with another X point.
+        </p>
+    </div>
+
+    <div class="text-part">
+        <h3>How does the algorithm work?</h3>
+        <p>
+            The way this algorithm works is that it starts with a random node or the node at the beginning,
+            which we will call the root node, and then it will start to go through all the nodes adjacent to it, 
+            as deep as it can go, or rather as far as it will go. there is no more way. thus beginning to go back until 
+            it finds more adjacent nodes, once it has gone through all the possible nodes in the graph, it begins to go back 
+            marking them as visited, since there are no more adjacent nodes to discover and so on until the start is reached. 
+            An abstraction of this would be that to search for your dog in your house you have to start, for example, 
+            from the entrance of the house, that would be the root node, it turns out that the entrance of the house only 
+            connects with the living room and the kitchen, for what you can only start looking for either in the room or in 
+            the kitchen once you search in both and since you can't find it, then you go back from the kitchen to the room 
+            and once the room connects with a room, this in a graph it would be a node and there you find it then you already 
+            know that to find your dog you must go from the 
+            entrance to the living room to the kitchen, from the kitchen to the living room and from the living room to the room
+        </p>
+    </div>
+
+    
+    <app-depth-first-search-animation></app-depth-first-search-animation>
+
+
+    <div class="mt-2"></div>
+
+    <div class="text-part">
+
+        <h3>Code:</h3>
+
+        <div class="code-part">
+
+            <p>class Graph {{'{'}}</p>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;constructor(v) {{'{'}}</p>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.V = v;</p>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.adj = new Array(v);</p>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(let i = 0; i < v; i++) {{'{'}}</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.adj[i] = [];</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{'}'}}</p>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;{{'}'}}</p>
+
+
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;addEdge(v, w) {{'{'}}</p>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.adj[v].push(w);</p>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;{{'}'}}</p>
+            <br>
+
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;DFSUtil(v, visited) {{'{'}}</p>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;visited[v] = true;</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.write(v + " ");</p>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(let i of this.adj[v].values()) {{'{'}}</p>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let n = i</p>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (!visited[n]) {{'{'}}</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.DFSUtil(n, visited);</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{'}'}}</p>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{'}'}}</p>
+            <p>&nbsp;&nbsp;&nbsp;{{'}'}}</p>
+            <br>
+
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;DFS(v) {{'{'}}</p>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let visited = new Array(this.V);</p>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(let i = 0; i < this.V; i++) {{'{'}}</p>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let n = i</p>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;visited[i] = false;</p>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{'}'}}</p>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.DFSUtil(v, visited);</p>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;{{'}'}}</p>
+            <br>
+            <p>{{'}'}}</p>
+
+        </div>
+
+    </div>
+
+        
+</div>

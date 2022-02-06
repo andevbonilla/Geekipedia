@@ -1,0 +1,32 @@
+.header-home{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2.5rem;
+}
+
+.search-part{
+    display: flex;
+    align-items: center;
+}
+
+.search-part input{
+    margin-left: .8rem;
+    padding: .4rem;
+    border-top: none;
+    border-right: none; 
+    border-left: none;
+    outline: none;
+}
+
+h4{
+
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 1.4rem;
+
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}

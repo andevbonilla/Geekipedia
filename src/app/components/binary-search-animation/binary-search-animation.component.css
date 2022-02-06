@@ -1,0 +1,52 @@
+.canvas{
+    width: 100%;
+    height: 30rem;
+}
+
+.example{
+    padding: 2rem 0 0 0;
+}
+
+.example h4{
+    margin-bottom: 2rem;
+}
+
+.array-value{
+    padding: .7rem 1rem;
+    background-color: hotpink;
+    color: white;
+    margin: .7rem;
+}
+
+.array-value2{
+    padding: .7rem 1rem;
+    background-color: greenyellow;
+    color: white;
+    margin: .7rem;
+}
+
+.animation{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.center{
+    text-align: center
+}
+
+.fa-arrow-down{
+    font-size: 1.8rem;
+}
+
+.none{
+    color: white;
+}
+
+.right{
+    color:  red;
+}
+
+.left{
+    color: green;
+}

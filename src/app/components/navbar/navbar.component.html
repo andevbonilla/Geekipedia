@@ -1,0 +1,15 @@
+<div class="header-home">
+
+  <a routerLink='/home'>
+
+    <h4>Geekipedia</h4>
+
+  </a>
+    
+
+    <div class="search-part">
+      <i class="fas fa-search pointer"></i>
+      <input (keyup)="searchAlgorithm()" [(ngModel)]="searchInput" name="searchInput" type="text" placeholder="Search algorithm">
+    </div>
+
+  </div>

@@ -1,0 +1,118 @@
+<div class="mt-5"></div>
+<div class="introduction">
+
+    <div class="text-part">
+        <h2>Binary Search</h2>
+        <p>
+            The binary search is an algorithm, which makes the task of finding a value in an ordered
+            list of elements more efficient.To give an example, imagine that you have a 2000 page 
+            bookand you want to find page 1100, you don't know where exactly is the page. Then the 
+            normal thing would be that knowing that the book has 2000 pages you will not start looking 
+            for the page from the first, but rather you will start looking in the middle and you will 
+            start looking to the right until you find page 1100. Well, it turns out that the binary search 
+            works in a similar way, normally when you search for example the number 9 in a list 
+            of 10 like this: [1,2,3,4,5,6,7,8,9,10], your computer goes to start searching from 1 
+            to the end, 
+            until we see which element coincides with 9, therefore the computer would take 9 iterations 
+            to reach 9, in the case of the book it would be like looking page by page from the first 
+            to the last to see which one matches, while in the binary search the iteration number is 
+            much lower since it uses an algorithm that I will explain later, to find the fastest value 
+            and therefore be more efficient.
+        </p>
+        <p class="mt-1">
+            You can check below in the section of colored squares, how the two types of search work both the normal
+            and the binary one visually, try putting the number 9 in the two types of search and you will see how the binary 
+            search finds the 9 very much faster than normal search. and that is only 10 elements imagine millions.
+        </p>
+    </div>
+
+    <app-binary-search-animation></app-binary-search-animation>
+
+    <div class="text-part">
+        <h3>How does the algorithm work?</h3>
+        <p>
+            The algorithm works with a simple mathematical formula: (right + left) / 2, where right 
+            will be the last element of the ordered list and left will be the first. In the example above, left would 
+            be 1 and right would be 10, therefore if we do the formula: (10-1 + 1) / 2 gives us 5, we will call this value mid, 
+            then the algorithm will have to do a validation, if this value mid (5) is less than the value we are looking for 
+            for example 7, so now left will be 5, otherwise if mid (5) is greater than the value we are looking for for example 3, 
+            then right now will be 5 and this is repeated x times until the value is found.
+            <br>
+            In short, the algorithm takes half the sum of the two extremes left and right until it is shortened more and more 
+            and finds the value. Left and right change in each iteration depending on whether mid, which is the result of 
+            ((right-left) + left) / 2, is greater or less than the value we are looking for
+        </p>
+    </div>
+
+    <div class="mt-2"></div>
+
+    <div class="text-part">
+
+        <h3>Recursive implementation:</h3>
+
+        <div class="code-part">
+            <p>function binarySearch(arr, left, right, objetive){{'{'}}</p>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;if (right >= left){{'{'}}</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let mid = left + Math.floor((right - left) / 2);</p>
+            <br>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (arr[mid] == objetive)</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return mid;</p>
+            <br>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (arr[mid] > objetive)</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return binarySearch(arr, left, mid - 1, objetive);</p>
+            <br>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return binarySearch(arr, mid + 1, right, objetive);</p>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;{{'}'}}</p>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;return -1;</p>
+            <br>
+            <p>{{'}'}}</p>
+        </div>
+
+    </div>
+
+    <div class="text-part">
+        
+        <h3>Iterative implementation:</h3>
+
+        <div class="code-part">
+            <p>function binarySearch(arr, objetive){{'{'}}</p>
+            <br>
+            <p>let left = 0;</p>
+            <p>let right = arr.length - 1;</p>
+            <p>let mid;</p>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;while (right >= left) {{'{'}}</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mid = left + Math.floor((right - left) / 2);</p>
+            <br>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (arr[mid] == objetive))</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return mid;</p>
+            <br>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (arr[mid] > objetive)</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;right = mid - 1;</p>
+            <br>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;left = mid + 1;</p>
+            <p>&nbsp;&nbsp;&nbsp;{{'}'}}</p>
+            <br>
+            <br>
+            <p>&nbsp;&nbsp;return -1;</p>
+            <p>{{'}'}}</p>
+        </div>
+
+    </div>
+    
+        
+</div>
+
+
+
+

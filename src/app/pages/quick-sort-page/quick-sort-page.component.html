@@ -1,0 +1,72 @@
+<div class="mt-5"></div>
+<div class="introduction">
+
+    <div class="text-part">
+        <h2>Quicksort</h2>
+        <p>
+            Quicksort is a sorting algorithm also known as the divide and conquer algorithm. for example if you send it the following list: 4,3,5,1,2 it will return: 1,2,3,4,5
+        </p>
+    </div>
+
+    <div class="text-part">
+        <h3>How does the algorithm work?</h3>
+        <p>
+            This algorithm is also known as the divide and conquer algorithm, since what this algorithm does is divide the list into smaller 
+            pieces in each iteration, in order to order the numbers.
+            <br>
+            For this we will first have to take a number that we will call pivot, this will be the first number of the list,
+            then we will have the left side, in which we will put all the numbers of the list that are less than the pivot and
+            we will also have the right side, where we will put all the numbers greater than the pivot, for example if we have
+            the following list: [5, 4, 7, 1, 3, 2] the pivot would be: 5, and the left would be: [4, 1, 3, 2] , since these
+            numbers are less than 5 (pivot) and the right would be: [7] since seven is the only number in the list greater
+            than 5. Then the process is repeated with each side, both left and right, until Only one number remains,
+            indicating that the list is already sorted.
+        </p>
+    </div>
+
+    
+    <app-quick-sort-animation></app-quick-sort-animation>
+
+
+    <div class="mt-2"></div>
+
+    <div class="text-part">
+
+        <h3>Code:</h3>
+
+        <div class="code-part">
+            <p>function quickSort(array){{'{'}}</p>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;if ( array.length {{'<'}} 1 ){{'{'}}</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return [];</p>
+            <p>&nbsp;&nbsp;&nbsp;{{'}'}}</p>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;let left = [];</p>
+            <p>&nbsp;&nbsp;&nbsp;let right = [];</p>
+            <p>&nbsp;&nbsp;&nbsp;let pivot = array[0];</p>
+            <br>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;for (let i = 1; i {{'<'}} array.length; i++) {{'{'}}</p>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (array[i] {{'<'}} pivot) {{'{'}}</p>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;left.push(array[i]);</p>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{'}'}} else {{'{'}}</p>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;right.push(array[i]);</p>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{'}'}}</p>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;{{'}'}}</p>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;return [].concat(this.quickSort(left), pivot, this.quickSort(right));</p>
+            <br>
+            <p>{{'}'}}</p>
+            <br>
+        </div>
+
+    </div>
+
+        
+</div>

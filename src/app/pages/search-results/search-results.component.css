@@ -1,0 +1,12 @@
+.results{
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.link-result{
+    text-decoration: none;
+    color: black;
+    margin: 2rem 0;
+    font-size: 1.8rem;
+}
