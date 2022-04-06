@@ -1,3 +1,15 @@
+@media (max-width: 600px) {
+    
+    #body-home{
+        padding: 0 5%;
+    }
+ 
+    #presentation h1{
+        font-size: 3rem;
+    }
+
+}
+
 h1{
     font-family: 'Luckiest Guy', cursive;
     font-size: 4rem;

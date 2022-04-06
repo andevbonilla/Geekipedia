@@ -1,6 +1,27 @@
-.canvas{
-    width: 100%;
-    height: 30rem;
+@media (max-width: 700px) {
+    
+    #array-value{
+        padding: .2rem .5rem;
+        background-color: hotpink;
+        color: white;
+        margin: .2rem;
+    }
+
+    #array-value p{
+        font-size: .7rem;
+    }
+    
+    #array-value2{
+        padding: .2rem .5rem;
+        background-color: greenyellow;
+        color: white;
+        margin: .2rem;
+    }
+    
+    #array-value2 p{
+        font-size: .7rem;
+    }
+    
 }
 
 .example{

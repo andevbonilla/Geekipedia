@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
 
   searchInput:string = ''
+  isSearching:boolean = false;
 
   constructor(private router:Router) { }
 
@@ -24,5 +25,9 @@ export class NavbarComponent implements OnInit {
 
     this.router.navigateByUrl(`/results/${this.searchInput}`);
     
+  }
+
+  openSearch(){
+    this.isSearching = !this.isSearching
   }
 }

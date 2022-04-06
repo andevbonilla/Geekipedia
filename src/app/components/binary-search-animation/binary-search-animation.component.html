@@ -1,52 +1,55 @@
-<!-- normal search option -->
-<div class="example">
+<div class="container">
+    <div class="example">
 
-    <h4>Normal Search:</h4>
-    <div class="animation">
-
-        <div class="center" *ngFor="let object of array1; let i = index">
-            <div *ngIf="object.arrow">
-                <i class="fas fa-arrow-down"></i>
+        <h4>Normal Search:</h4>
+        <div class="animation">
+    
+            <div class="center" *ngFor="let object of array1; let i = index">
+                <div *ngIf="object.arrow">
+                    <i class="fas fa-arrow-down"></i>
+                </div>
+            
+                <div class="array-value" id="array-value">
+                    <p>{{object.num}}</p>
+    
+                </div>
             </div>
-        
-            <div class="array-value">
-                <p>{{object.num}}</p>
-
-            </div>
+    
         </div>
-
+    
     </div>
-
-</div>
-
-<div class="parameter-part">
-    <input #nomalSearchInput type="number" placeholder="Write some value between 1 to 10" min="1" max="10">
-    <button (click)="normalSearch(nomalSearchInput.value)" class="pointer">Search</button>
-</div>
-
-<!-- binary search option -->
-<div class="example">
-
-    <h4>Binary Search:</h4>
-    <div class="animation">
-
-        <div class="center" *ngFor="let object of array2; let i = index">
-            <div *ngIf="object.arrow">
-                <i [ngClass]="{'left': object.color == 'green', 'right': object.color == 'red', 'none': object.color == ''}" class="fas fa-arrow-down"></i>
+    
+    <div class="parameter-part">
+        <input #nomalSearchInput type="number" placeholder="Write some value between 1 to 10" min="1" max="10">
+        <button (click)="normalSearch(nomalSearchInput.value)" class="pointer">Search</button>
+    </div>
+    
+    <!-- binary search option -->
+    <div class="example">
+    
+        <h4>Binary Search:</h4>
+        <div class="animation">
+    
+            <div class="center" *ngFor="let object of array2; let i = index">
+                <div *ngIf="object.arrow">
+                    <i [ngClass]="{'left': object.color == 'green', 'right': object.color == 'red', 'none': object.color == ''}" class="fas fa-arrow-down"></i>
+                </div>
+            
+                <div class="array-value2" id="array-value2">
+                    <p>{{object.num}}</p>
+    
+                </div>
             </div>
-        
-            <div class="array-value2">
-                <p>{{object.num}}</p>
-
-            </div>
+    
         </div>
-
+    
     </div>
-
-</div>
-
-<div class="parameter-part">
-    <input #binarySearchInput type="number" placeholder="Write some value between 1 to 10" min="1" max="10">
-    <button (click)="binarySearch(binarySearchInput.value)" class="pointer">Search</button>
+    
+    <div class="parameter-part">
+        <input #binarySearchInput type="number" placeholder="Write some value between 1 to 10" min="1" max="10">
+        <button (click)="binarySearch(binarySearchInput.value)" class="pointer">Search</button>
+    </div>
+    
+    
 </div>
 

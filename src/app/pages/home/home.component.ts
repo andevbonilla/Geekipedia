@@ -9,11 +9,11 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
   listOfAlgorithms = [
-    'Binary-Search',
+    'Binary-Search',  //1
     'Breadth-First-Search',
-    'Depth-First-Search',
+    'Depth-First-Search', //1
     'Merge-Sort',
-    'Quicksort'
+    'Quicksort' //1
   ]
 
   constructor(private router:Router) { }

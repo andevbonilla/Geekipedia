@@ -4,16 +4,38 @@
     <div class="text-part">
         <h2>Breadth First Seach</h2>
         <p>
-            Depth First search, as its name says is a search that occurs either in a tree or in a graph at depth to, for example, find if X point connects with another X point.
+            Breadth first search is an algorithm for graph traversal,
+            to make it easy to understand this algorithm is responsible for traversing a graph and find a certain value.
+            But for you to understand much better first let's review what a graph is and why it is useful. 
         </p>
+    </div>
+
+    <div class="text-part">
+        <h3>What is a graph and Why this is useful?</h3>
+        <p>
+            A graph consists of a set of nodes or vertices connected by edges. An edge consists of a pair of vertices.
+            For example, if we establish a pair between two vertices, 
+            A and B, we refer to this related pair as an edge. Since they are connected by an edge, A and B are adjacent. This is useful because
+            provides answers to many arrangement, optimization and much more. For example we can use the graph for modeling network topology,
+            such as your friends on Instagram or the internet or for determining an optimal path in a GPS
+        </p>
+        <br>
+        <p>This is an example of a graph:</p>
+        <img class="example-graph" src="https://res.cloudinary.com/adivinity/image/upload/v1649212940/Example_Graph_cgbbso.jpg" alt="example">
+
     </div>
 
     <div class="text-part">
         <h3>How does the algorithm work?</h3>
         <p>
-            The way this algorithm works is that it starts with a random node or the node at the beginning,
-            which we will call the root node, and then it will start to go through all the nodes adjacent to it, 
-            entrance to the living room to the kitchen, from the kitchen to the living room and from the living room to the room
+            Now understanding what is a graph and its uses, let's continue with the explanation of how this algorithm works,
+            the first thing is that the algorithm takes a root value that can be any and this will be where the algorithm will start to traverse
+            the graph and second we have to put a goal which will be the value we want to find in the graph. for example if the graph has 3 letters A,
+            B and C and A is connected to B and B is connected to C and we specify that A will be the root value and C the goal,
+            then the algorithm will start to add to a queue the nodes that it visits, in the first case it would be A and as A is not C which is the goal,
+            then it continues searching, passing by the next node which will be connected by an edge in this case the only node that is connected to A would be
+            B so it passes to B and as B is not C, then it continues searching and so on until it finds the target.
+            Below you can see an animation which explains how this works in a visual way.
         </p>
     </div>
 
@@ -27,65 +49,99 @@
 
         <h3>Code:</h3>
 
+        <h4>We need to create a class:</h4>
+        <br>
+
         <div class="code-part">
 
             <p>class Graph {{'{'}}</p>
             <br>
-            <p>&nbsp;&nbsp;&nbsp;constructor(v) {{'{'}}</p>
+            <p>&nbsp;&nbsp;&nbsp;constructor() {{'{'}}</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.nodes = [];</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.adjacent = {{'{'}}{{'}'}};</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.edges = 0;</p>
+            <p>&nbsp;&nbsp;&nbsp;{{'}'}}</p>
             <br>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.V = v;</p>
+            <p>&nbsp;&nbsp;&nbsp;addNode(n) {{'{'}}</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.nodes.push(n);</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.adjacent[n] = [];</p>
+            <p>&nbsp;&nbsp;&nbsp;{{'}'}}</p>
             <br>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.adj = new Array(v);</p>
+            <p>&nbsp;&nbsp;&nbsp;addEdge(n, w) {{'{'}}</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.adjacent[n].push(w);</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.adjacent[w].push(n);</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.edges++;</p>
+            <p>&nbsp;&nbsp;&nbsp;{{'}'}}</p>
             <br>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(let i = 0; i < v; i++) {{'{'}}</p>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.adj[i] = [];</p>
+            <p>{{'}'}}</p>
+
+        </div>
+
+        <h4>Now let's initialize a new Graph and add nodes and edges</h4>
+        <br>
+
+        <div class="code-part">
+            <p>const graph = new Graph();</p>
+            <br>
+            <p>// here we add the same nodes as in the animation we used to visually show how the algorithm works </p>
+            <br>
+            <p>graph.addNode(1);</p>
+            <p>graph.addNode(2);</p>
+            <p>graph.addNode(3);</p>
+            <p>graph.addNode(4);</p>
+            <p>graph.addNode(5);</p>
+            <p>graph.addNode(6);</p>
+            <br>
+            <p>graph.addEdge(1,5);</p>
+            <p>graph.addEdge(1,2);</p>
+            <p>graph.addEdge(5,2);</p>
+            <p>graph.addEdge(5,6);</p>
+            <p>graph.addEdge(2,4);</p>
+            <p>graph.addEdge(2,3);</p>
+            <p>graph.addEdge(4,3);</p>
+            <p>graph.addEdge(4,6);</p>
+        </div>
+
+        <h4>The BFS function:</h4>
+        <br>
+
+        <div class="code-part">
+
+            <p>bfs( goal, root = this.nodes[0] ) {{'{'}}</p>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;let adj = this.adjacent;</p>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;const queue = [];</p>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;queue.push(root);</p>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;const discoveredNodes = [];</p>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;discoveredNodes[root] = true;</p>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;while(queue.length) {{'{'}}</p>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let n = queue.shift();</p>
+            <br>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (n === goal) {{'{'}}</p>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return true;</p>
+            <br>
             <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{'}'}}</p>
             <br>
-            <p>&nbsp;&nbsp;&nbsp;{{'}'}}</p>
-
-
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for (let i = 0; i < adj[n].length; i++) {{'{'}}</p>
             <br>
-            <p>&nbsp;&nbsp;&nbsp;addEdge(v, w) {{'{'}}</p>
-            <br>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.adj[v].push(w);</p>
-            <br>
-            <p>&nbsp;&nbsp;&nbsp;{{'}'}}</p>
-            <br>
-
-            <br>
-            <p>&nbsp;&nbsp;&nbsp;DFSUtil(v, visited) {{'{'}}</p>
-            <br>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;visited[v] = true;</p>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.write(v + " ");</p>
-            <br>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(let i of this.adj[v].values()) {{'{'}}</p>
-            <br>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let n = i</p>
-            <br>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (!visited[n]) {{'{'}}</p>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.DFSUtil(n, visited);</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (!discoveredNodes[adj[n][i]]) {{'{'}}</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;discoveredNodes[adj[n][i]] = true;</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;queue.push(adj[n][i]);</p>
             <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{'}'}}</p>
             <br>
             <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{'}'}}</p>
-            <p>&nbsp;&nbsp;&nbsp;{{'}'}}</p>
-            <br>
-
-            <br>
-            <p>&nbsp;&nbsp;&nbsp;DFS(v) {{'{'}}</p>
-            <br>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let visited = new Array(this.V);</p>
-            <br>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(let i = 0; i < this.V; i++) {{'{'}}</p>
-            <br>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let n = i</p>
-            <br>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;visited[i] = false;</p>
-            <br>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{'}'}}</p>
-            <br>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.DFSUtil(v, visited);</p>
             <br>
             <p>&nbsp;&nbsp;&nbsp;{{'}'}}</p>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;return false;</p>
             <br>
             <p>{{'}'}}</p>
 

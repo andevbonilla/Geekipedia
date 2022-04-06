@@ -24,3 +24,7 @@ h2, h3{
 .text-part{
     margin: 1.5rem 0;
 }
+
+.example-graph{
+    width: 50%;
+}

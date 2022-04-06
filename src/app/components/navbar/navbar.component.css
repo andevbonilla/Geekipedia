@@ -1,3 +1,11 @@
+@media (max-width: 600px) {
+    
+    #search-part input{
+        display: none;
+    }
+
+}
+
 .header-home{
     display: flex;
     justify-content: space-between;
@@ -19,6 +27,23 @@
     outline: none;
 }
 
+.search-part-movil {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.search-part-movil input{
+    margin-left: .8rem;
+    padding: .4rem;
+    border-top: none;
+    border-right: none; 
+    border-left: none;
+    outline: none;
+    width: 100%;
+}
+
+
 h4{
 
     font-family: 'Luckiest Guy', cursive;
@@ -26,7 +51,7 @@ h4{
 
 }
 
-a{
+a, i{
     color: black;
     text-decoration: none;
 }

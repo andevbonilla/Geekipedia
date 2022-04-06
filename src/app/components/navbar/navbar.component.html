@@ -1,15 +1,20 @@
 <div class="header-home">
 
-  <a routerLink='/home'>
-
+  <a routerLink='/home' *ngIf="!isSearching">
+    <i class="fa-solid fa-x"></i>
     <h4>Geekipedia</h4>
 
   </a>
     
 
-    <div class="search-part">
-      <i class="fas fa-search pointer"></i>
+    <div class="search-part" id="search-part" *ngIf="!isSearching">
+      <i (click)="openSearch()" class="fas fa-search pointer"></i>
       <input (keyup)="searchAlgorithm()" [(ngModel)]="searchInput" name="searchInput" type="text" placeholder="Search algorithm">
+    </div>
+
+    <div class="search-part-movil" *ngIf="isSearching">
+      <i (click)="openSearch()" class="fas fa-times pointer"></i>
+      <input (keyup)="searchAlgorithm()" [(ngModel)]="searchInput" name="searchInput" type="text" placeholder="Search algorithm"> 
     </div>
 
   </div>
