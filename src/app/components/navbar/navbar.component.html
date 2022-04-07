@@ -13,7 +13,7 @@
     </div>
 
     <div class="search-part-movil" *ngIf="isSearching">
-      <i (click)="openSearch()" class="fas fa-times pointer"></i>
+      <i (click)="openSearch()"  class="fas fa-times pointer"></i>
       <input (keyup)="searchAlgorithm()" [(ngModel)]="searchInput" name="searchInput" type="text" placeholder="Search algorithm"> 
     </div>
 

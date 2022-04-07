@@ -27,7 +27,7 @@ export class SearchResultsComponent implements OnInit {
     this.activatedRoute.params.subscribe((params:any) => {
 
       this.algorithm = params.query;
-      this.algorithm = this.algorithm.toLowerCase()
+      this.algorithm = this.algorithm.trim().toLowerCase()
       let length = this.algorithm.length;
       this.matchResults = []
 

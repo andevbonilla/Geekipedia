@@ -138,8 +138,6 @@ export class BinarySearchAnimationComponent implements OnInit {
                 lastLefts.push(mid);
                 ilefts++;
 
-                console.log(lastLefts)
-
               this.array2[mid].arrow = true;
               this.array2[mid].color = 'green';
               left = mid + 1;

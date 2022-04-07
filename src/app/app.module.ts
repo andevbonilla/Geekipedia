@@ -18,6 +18,8 @@ import { SearchResultsComponent } from './pages/search-results/search-results.co
 import { DepthFirstSearchAnimationComponent } from './components/depth-first-search-animation/depth-first-search-animation.component';
 import { BreadthFirstSearchAnimationComponent } from './components/breadth-first-search-animation/breadth-first-search-animation.component';
 import { BreadthFirstSearchPageComponent } from './pages/breadth-first-search-page/breadth-first-search-page.component';
+import { MergeSortPageComponent } from './pages/merge-sort-page/merge-sort-page.component';
+import { MergeSortAnimationComponent } from './components/merge-sort-animation/merge-sort-animation.component';
 
 
 @NgModule({
@@ -35,7 +37,9 @@ import { BreadthFirstSearchPageComponent } from './pages/breadth-first-search-pa
     SearchResultsComponent,
     DepthFirstSearchAnimationComponent,
     BreadthFirstSearchAnimationComponent,
-    BreadthFirstSearchPageComponent
+    BreadthFirstSearchPageComponent,
+    MergeSortPageComponent,
+    MergeSortAnimationComponent
   ],
   imports: [
     BrowserModule,

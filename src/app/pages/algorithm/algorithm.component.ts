@@ -19,6 +19,7 @@ export class AlgorithmComponent implements OnInit {
   quickSortAnimation:boolean = false
   depthFirstSearch:boolean = false;
   breadthFirstSearch:boolean = false;
+  mergeSort:boolean = false;
 
 
   constructor(private activatedRoute:ActivatedRoute) {
@@ -34,7 +35,7 @@ export class AlgorithmComponent implements OnInit {
 
       case 'Quicksort':
 
-        this.quickSortAnimation = true;      
+        this.quickSortAnimation = true;    
         break;
 
       case 'Depth-First-Search':
@@ -45,6 +46,11 @@ export class AlgorithmComponent implements OnInit {
       case 'Breadth-First-Search':
 
         this.breadthFirstSearch = true;      
+        break;
+
+      case 'Merge-Sort':
+
+        this.mergeSort = true;      
         break;
     
       default:
