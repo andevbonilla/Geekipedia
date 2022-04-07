@@ -4,7 +4,9 @@ Geekipedia is an application where you can learn some of the most popular algori
 
 ## web page
 
-```https://a-n-d-r-e-s-b-o-n-i-l-l-a.github.io/Geekipedia/home/Geekipedia```
+here is the link of the app, if you want to see it
+
+https://a-n-d-r-e-s-b-o-n-i-l-l-a.github.io/Geekipedia/home/Geekipedia
 
 ## Test code
 
